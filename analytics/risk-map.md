@@ -15,7 +15,7 @@
   <tbody>
     <tr>
       <td>1</td>
-      <td style="background-color: red">Слишком сложный интерфейс</td>
+      <td>Слишком сложный интерфейс</td>
       <td>Средняя</td>
       <td>Высокое</td>
       <td>

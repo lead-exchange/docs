@@ -14,6 +14,9 @@ docs/
 
 ## Быстрый доступ
 
+### Требования
+- [Бизнес-требования](requirements/business.md)
+
 ### Стандарты разработки
 - [Формат веток и коммитов](guidelines/branch-commit-format.md)
 

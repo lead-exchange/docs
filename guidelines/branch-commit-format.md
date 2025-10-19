@@ -80,7 +80,6 @@
 ```
 feat(auth): add JWT token support
 fix(ui): resolve button alignment issue
-docs(api): update authentication endpoints
 refactor(db): optimize database queries
 ```
 
@@ -95,4 +94,9 @@ refactor(db): optimize database queries
 Примеры:
 - `[feat][#123] Добавление формы регистрации`
 - `[fix][#45] Исправление утечки памяти`
-- `[docs][#78] Обновление пользовательских требований`
+
+### 4.2 Описание PR
+
+```
+Resolves #issue-id
+```

@@ -17,6 +17,10 @@ docs/
 ### Стандарты разработки
 - [Формат веток и коммитов](guidelines/branch-commit-format.md)
 
+### Анализ рынка и рисков
+- [Анализ конкурентов](analytics/competition-analysis.md)
+- [Карта рисков](analytics/risk-map.md)
+
 ## Процесс работы с документацией
 
 ### Внесение изменений

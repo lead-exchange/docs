@@ -24,6 +24,9 @@ docs/
 - [Анализ конкурентов](analytics/competition-analysis.md)
 - [Карта рисков](analytics/risk-map.md)
 
+### Архитектура и дизайн
+- [API приложения](design/api.md)
+
 ## Процесс работы с документацией
 
 ### Внесение изменений

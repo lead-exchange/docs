@@ -13,10 +13,10 @@
 - `develop` - текущая разработка
 
 #### Ветки разработки
-- `feature/{issue-id}` - новые функциональности
-- `fix/{issue-id}` - исправления багов
-- `hotfix/{issue-id}` - срочные исправления в production
-- `release/{version}` - подготовка релиза
+- `feature/{issue-id}-[optional desciption]` - новые функциональности
+- `fix/{issue-id}-[optional desciption]` - исправления багов
+- `hotfix/{issue-id}-[optional desciption]` - срочные исправления в production
+- `release/{version}-[optional desciption]` - подготовка релиза
 
 #### Правила:
 - Все изменения в `main` и `develop` запрещены, только через PR (необходим минимум один approve)
@@ -30,8 +30,8 @@
 - `main` - актуальная версия документации
 
 #### Ветки разработки
-- `feature/{issue-id}` - новые документы или значительные правки
-- `fix/{issue-id}` - исправления в документации
+- `feature/{issue-id}-[optional desciption]` - новые документы или значительные правки
+- `fix/{issue-id}-[optional desciption]` - исправления в документации
 
 #### Правила:
 - Прямые коммиты в `main` запрещены, только через PR (необходим минимум один approve)

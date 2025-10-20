@@ -16,6 +16,7 @@ docs/
 
 ### Требования
 - [Бизнес-требования](requirements/business.md)
+- [Пользовательские, функциональные, нефункциональные требования](requirements/user_functional_non-functional.md)
 
 ### Стандарты разработки
 - [Формат веток и коммитов](guidelines/branch-commit-format.md)

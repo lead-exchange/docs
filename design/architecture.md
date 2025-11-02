@@ -85,6 +85,7 @@ sequenceDiagram
 ### Детальное описание ключевых процессов
 
 #### Процесс мэтчинга
+![Label](matches.drawio)
 
 ```mermaid
 flowchart LR
@@ -240,6 +241,7 @@ erDiagram
         uuid id PK
         uuid lead_id FK
         uuid property_id FK
+        decimal lead_commission
         varchar status
         timestamp matched_at
     }

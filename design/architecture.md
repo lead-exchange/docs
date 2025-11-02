@@ -85,7 +85,7 @@ sequenceDiagram
 ### Детальное описание ключевых процессов
 
 #### Процесс мэтчинга
-![Label](matches.drawio)
+![Конечный автомат матчей](matches.drawio)
 
 ```mermaid
 flowchart LR

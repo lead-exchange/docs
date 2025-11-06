@@ -163,6 +163,7 @@ erDiagram
     PROPERTIES ||--o{ MATCHES : included_in
     MATCHES ||--o{ MATCHES_LOG : included_in
     USERS ||--o{ MATCHES_LOG : included_in
+    USERS ||--o{ MATCHES : included_in
     
     USERS {
         uuid id PK
@@ -197,7 +198,7 @@ erDiagram
         uuid lead_id FK
         uuid property_id FK
         decimal lead_commission
-        updated_by user_id FK
+        uuid updated_by FK
         text comment
         varchar lead_status
         varchar estate_status

@@ -161,6 +161,8 @@ erDiagram
     USERS ||--o{ PROPERTIES : creates
     LEADS ||--o{ MATCHES : included_in
     PROPERTIES ||--o{ MATCHES : included_in
+    MATCHES ||--o{ MATCHES_LOG : included_in
+    USERS ||--o{ MATCHES_LOG : included_in
     
     USERS {
         uuid id PK

@@ -164,7 +164,7 @@ erDiagram
     USERS ||--o{ LEADS : creates
     USERS ||--o{ PROPERTIES : creates
     LEADS ||--o{ MATCHES : included_in
-    PROPERTIES ||--o{ MATCHES : included_in
+    ESTATES ||--o{ MATCHES : included_in
     MATCHES ||--o{ MATCHES_LOG : included_in
     USERS ||--o{ MATCHES_LOG : included_in
     USERS ||--o{ MATCHES : included_in
@@ -186,7 +186,7 @@ erDiagram
         timestamp updated_at
     }
     
-    PROPERTIES {
+    ESTATES {
         uuid id PK
         uuid user_id FK
         jsonb attributes

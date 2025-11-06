@@ -85,7 +85,52 @@ sequenceDiagram
 ### Детальное описание ключевых процессов
 
 #### Процесс мэтчинга
-![Конечный автомат матчей](matches.drawio.png)
+
+## Статусы матчей
+
+Матчи могут находиться в одном из следующих статусов:
+
+- `UNDEFINED`
+- `LIKED`
+- `DISLIKED`
+- `COMMISSION`
+- `ACCEPTED`
+- `DECLINED`
+
+---
+
+### Правила перехода между статусами мэтча
+
+> ⚠️ **Общее правило:**  
+> Статус `UNDEFINED` — начальное состояние. После первого изменения статуса **обратно в `UNDEFINED` перейти нельзя**.
+
+#### Доступные переходы в зависимости от текущего статуса коллеги:
+
+| Текущий статус коллеги | Доступные действия для меня |
+|------------------------|-----------------------------|
+| `UNDEFINED`            | → `LIKED`, `DISLIKED`, `COMMISSION` |
+| `COMMISSION`           | → `COMMISSION`, `ACCEPTED`, `DECLINED` |
+| `LIKED`                | → `LIKED`, `DISLIKED`, `COMMISSION` |
+| `DISLIKED`             | ❌ Нельзя изменить (блокировка) |
+| `ACCEPTED`             | ❌ Нельзя изменить (блокировка) |
+| `DECLINED`             | ❌ Нельзя изменить (блокировка) |
+
+> ✅ **Редактирование последней записи:**  
+> Пользователь может изменить статус **дважды подряд**, но при этом **должны соблюдаться указанные выше правила**.  
+> Только последняя запись статуса редактируема — предыдущие фиксируются и не изменяются.
+
+---
+
+### Примеры
+
+### Пример 1: Редактирование
+1. Я ставлю: `LIKED` (последняя запись)
+2. Могу изменить её на `DISLIKED` или `COMMISSION` (в рамках правил)
+3. После этого новое значение становится последним — можно снова редактировать, пока не будет установлен финальный статус
+
+
+
+#### Правила перехода между статусами
 
 ```mermaid
 flowchart LR
@@ -100,96 +145,6 @@ flowchart LR
     G --> I[Пропуск]
 ```
 
-#### Процесс сделки после мэтча
-
-##### При согласии с разделением комиссии
-
-```mermaid
-sequenceDiagram
-    participant R1 as Риэлтор 1
-    participant R2 as Риэлтор 2
-    participant S as System
-    
-    par 
-        R1->>S: Лайкает объект
-    and 
-        R2->>S: Лайкает лида
-    end
-    Note over S: Мэтч
-    
-    par 
-        S->>R1: Контакты R2
-    and 
-        S->>R2: Контакты R1
-    end
-
-    R1<<->>R2: Обсуждение деталей сделки
-```
-
-##### При несогласии с разделением комиссии
-
-###### Со стороны лида
-
-```mermaid
-sequenceDiagram
-    participant R1 as Риэлтор 1
-    participant R2 as Риэлтор 2
-    participant S as System
-    
-    par 
-        R1->>S: Лайкает объект
-    and 
-        R2->>S: Лайкает лида (с условием)
-    end
-    S->>R1: Информация с предложением об изменении комиссии
-    alt согласен
-        R1->>S: согласие с изменившемися условиями сделки
-        Note over S: Мэтч
-        par
-          S->>R1: Контакты R2
-        and
-          S->>R2: Контакты R1
-        end
-  
-        R1<<->>R2: Обсуждение деталей сделки
-    else
-        R1->>S: несогласие с изменившемися условиями сделки
-        Note over S: Мэтч не случился
-    end
-```
-
-###### Со стороны объекта
-
-```mermaid
-sequenceDiagram
-    participant R1 as Риэлтор 1
-    participant R2 as Риэлтор 2
-    participant S as System
-
-    par
-        R1->>S: Лайкает объект (с условием)
-    and
-        R2->>S: Лайкает лида
-    end
-    
-    S->>R2: Информация с предложением об изменении комиссии
-    
-    alt согласен
-        R2->>S: согласие с изменившемися условиями сделки
-        Note over S: Мэтч
-        
-        par
-            S->>R1: Контакты R2
-        and
-            S->>R2: Контакты R1
-        end
-    
-        R1<<->>R2: Обсуждение деталей сделки
-    else
-        R2->>S: несогласие с изменившемися условиями сделки
-        Note over S: Мэтч не случился
-    end
-```
 
 ## Технические решения
 
@@ -210,8 +165,6 @@ erDiagram
     USERS {
         uuid id PK
         varchar telegram_id
-        varchar phone
-        varchar email
         timestamp created_at
         timestamp updated_at
     }
@@ -242,8 +195,20 @@ erDiagram
         uuid lead_id FK
         uuid property_id FK
         decimal lead_commission
-        varchar status
+        updated_by user_id FK
+        text comment
+        varchar lead_status
+        varchar estate_status
         timestamp matched_at
+    }
+    
+    MATCHES_LOG {
+    uuid match_id FK
+    varchar status
+    decimal lead_commission
+    uuid updated_by FK
+    text comment
+    timestamp updated_at
     }
 ```
 

@@ -14,7 +14,7 @@ docs/
 
 ## Быстрый доступ
 - [Презентация](https://docs.google.com/presentation/d/13-437cfUWmEjm1xPf43afObIOPyLnWYpTucjpRch9Bg/edit?usp=sharing)
-- [Бот] (https://t.me/lead_exchange_bot)
+- [Бот](https://t.me/lead_exchange_bot)
 ### Требования
 - [Бизнес-требования](requirements/business.md)
 - [Пользовательские, функциональные, нефункциональные требования](requirements/user_functional_non-functional.md)

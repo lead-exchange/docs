@@ -13,7 +13,8 @@ docs/
 ```
 
 ## Быстрый доступ
-
+- [Презентация](https://docs.google.com/presentation/d/13-437cfUWmEjm1xPf43afObIOPyLnWYpTucjpRch9Bg/edit?usp=sharing)
+- [Бот] (https://t.me/lead_exchange_bot)
 ### Требования
 - [Бизнес-требования](requirements/business.md)
 - [Пользовательские, функциональные, нефункциональные требования](requirements/user_functional_non-functional.md)
@@ -28,6 +29,7 @@ docs/
 ### Архитектура и дизайн
 - [API приложения](design/api.md)
 - [Архитектура приложения](design/architecture.md)
+- [Дизайн](https://www.figma.com/design/t3tf8xmkJHUU9YporI17TJ/Birzha-Lidov?node-id=26-509&p=f&t=hcREp6OTSLighx9C-0)
 
 ## Процесс работы с документацией
 

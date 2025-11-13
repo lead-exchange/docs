@@ -162,7 +162,7 @@ flowchart LR
 ```mermaid
 erDiagram
     USERS ||--o{ LEADS : creates
-    USERS ||--o{ PROPERTIES : creates
+    USERS ||--o{ ESTATES : creates
     LEADS ||--o{ MATCHES : included_in
     ESTATES ||--o{ MATCHES : included_in
     MATCHES ||--o{ MATCHES_LOG : included_in
@@ -207,15 +207,18 @@ erDiagram
         varchar lead_status
         varchar estate_status
         timestamp matched_at
+        timestamp created_at
+        timestamp updated_at
     }
     
     MATCHES_LOG {
-    uuid match_id FK
-    varchar status
-    decimal lead_commission
-    uuid updated_by FK
-    text comment
-    timestamp updated_at
+        uuid id PK
+        uuid match_id FK
+        varchar status
+        decimal lead_commission
+        uuid updated_by FK
+        text comment
+        timestamp created_at
     }
 ```
 
